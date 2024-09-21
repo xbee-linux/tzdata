@@ -1,1 +1,12 @@
 schema-version: 1.0
+
+
+var:
+  xbee:
+    version: 2024a
+
+provision:
+  - url: https://www.iana.org/time-zones/repository/releases/tzdata{{ .xbee.version }}.tar.gz
+  - shell:
+      template: "tzdata.sh"
+      directory: "{{ .xbee.install }}"
